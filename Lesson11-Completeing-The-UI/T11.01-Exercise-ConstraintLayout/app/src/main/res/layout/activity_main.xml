@@ -1,36 +1,352 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- TODO (17) Surround the Constraint layout with a ScrollView -->
-<!-- TODO (2) Replace the Relative layout with a ConstraintLayout -->
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<!-- COMPLETE (17) Surround the Constraint layout with a ScrollView -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- TODO (3) Create a TextView for the Passenger label and name -->
-    <!-- TODO (4) Use tool:text to set the text value -->
+    <!-- COMPLETE (2) Replace the Relative layout with a ConstraintLayout -->
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <!-- TODO (5) Create an ImageView for the left rectangle -->
-    <!-- TODO (6) Set the background to the shape_rectangle_stroke drawable -->
+        <!-- COMPLETE (3) Create a TextView for the Passenger label and name -->
+        <!-- COMPLETE (4) Use tool:text to set the text value -->
+        <TextView
+            android:id="@+id/tvPassengerLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/passenger_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
 
-    <!-- TODO (7) Create an ImageView for the divider -->
+        <TextView
+            android:id="@+id/tvPassengerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            tools:text="@string/passenger_name"
+            app:layout_constraintStart_toStartOf="@+id/tvPassengerLabel"
+            app:layout_constraintTop_toBottomOf="@+id/tvPassengerLabel"
+            tools:layout_editor_absoluteX="16dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/colorPrimary" />
 
-    <!-- TODO (8) Create an ImageView for the rightRectangle -->
+        <!-- COMPLETE (5) Create an ImageView for the left rectangle -->
+        <!-- COMPLETE (6) Set the background to the shape_rectangle_stroke drawable -->
+        <ImageView
+            android:id="@+id/ivLeftRectangle"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPassengerName"
+            app:srcCompat="@drawable/shape_rectangle_stroke" />
 
-    <!-- TODO (9) Create a TextView for the origin code, the destination code and the flight code -->
+        <!-- COMPLETE (8) Create an ImageView for the rightRectangle -->
+        <ImageView
+            android:id="@+id/ivRightRectangle"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPassengerName"
+            app:srcCompat="@drawable/shape_rectangle_stroke" />
 
-    <!-- TODO (15) Import the plane image SVG file into the drawable directory and name it art_plane -->
-    <!-- TODO (16) Create an ImageView for the plane and set the background to art_plane drawable -->
+        <!-- COMPLETE (7) Create an ImageView for the divider -->
+        <ImageView
+            android:id="@+id/ivDivider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimaryLight"
+            app:layout_constraintBottom_toTopOf="@+id/ivRightRectangle"
+            app:layout_constraintEnd_toStartOf="@+id/ivRightRectangle"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/ivLeftRectangle"
+            app:layout_constraintTop_toBottomOf="@+id/ivRightRectangle" />
 
-    <!-- TODO (10) Create a TextView for the time texts and their corresponding labels -->
+        <!-- COMPLETE (9) Create a TextView for the origin code, the destination code and the flight code -->
+        <TextView
+            android:id="@+id/tvOriginCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            tools:text="@string/origin_code"
+            app:layout_constraintBottom_toBottomOf="@+id/ivDivider"
+            app:layout_constraintTop_toBottomOf="@+id/ivDivider"
+            app:layout_constraintStart_toStartOf="@+id/ivLeftRectangle"
+            app:layout_constraintEnd_toEndOf="@+id/ivLeftRectangle"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
-    <!-- TODO (11) Create an ImageView for the blue table's header -->
+        <TextView
+            android:id="@+id/tvDestinationCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            tools:text="@string/destination_code"
+            app:layout_constraintBottom_toBottomOf="@+id/ivDivider"
+            app:layout_constraintTop_toBottomOf="@+id/ivDivider"
+            app:layout_constraintStart_toStartOf="@+id/ivRightRectangle"
+            app:layout_constraintEnd_toEndOf="@+id/ivRightRectangle"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
-    <!-- TODO (12) Create an ImageView for the blue table's body -->
+        <TextView
+            android:id="@+id/tvFlightCode"
+            tools:text="@string/flight_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintEnd_toStartOf="@+id/ivLeftRectangle"
+            app:layout_constraintStart_toEndOf="@+id/ivRightRectangle"
+            app:layout_constraintTop_toBottomOf="@+id/ivDivider" />
 
-    <!-- TODO (13) Create a TextView for each of the labels and text fields in the blue table -->
+        <!-- COMPLETE (10) Create a TextView for the time texts and their corresponding labels -->
+        <TextView
+            android:id="@+id/tvBoardingTimeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/boarding_time_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivLeftRectangle"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
-    <!-- TODO (14) Create an ImageView for the barcode -->
+        <TextView
+            android:id="@+id/tvBoardingTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/boarding_time"
+            app:layout_constraintStart_toStartOf="@+id/tvBoardingTimeLabel"
+            app:layout_constraintTop_toBottomOf="@+id/tvBoardingTimeLabel"
+            android:textSize="32sp"
+            android:textColor="#000000"/>
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/tvDepartureTimeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/tvBoardingTime"
+            app:layout_constraintTop_toBottomOf="@+id/tvBoardingTime"
+            android:text="@string/departure_time_label"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
+        <TextView
+            android:id="@+id/tvDeparturetime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/tvDepartureTimeLabel"
+            app:layout_constraintTop_toBottomOf="@+id/tvDepartureTimeLabel"
+            tools:text="@string/departure_time"
+            android:textSize="24sp"
+            android:textColor="@color/colorGood"/>
+
+        <TextView
+            android:id="@+id/tvBoardingInLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="40dp"
+            android:text="@string/boarding_in_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivLeftRectangle" />
+
+        <TextView
+            android:id="@+id/tvBoardingInTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/boarding_in_time"
+            app:layout_constraintStart_toStartOf="@+id/tvBoardingInLabel"
+            app:layout_constraintTop_toBottomOf="@+id/tvBoardingInLabel"
+            android:textSize="32sp"
+            android:textColor="@color/colorBad"/>
+
+        <TextView
+            android:id="@+id/tvArrivalLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/tvBoardingInTime"
+            app:layout_constraintTop_toBottomOf="@+id/tvBoardingInTime"
+            android:text="@string/arrival_time_label" />
+
+        <TextView
+            android:id="@+id/tvArrivalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/arrival_time"
+            app:layout_constraintStart_toStartOf="@+id/tvArrivalLabel"
+            app:layout_constraintTop_toBottomOf="@+id/tvArrivalLabel"
+            android:textSize="24sp"
+            android:textColor="@color/colorGood"/>
+
+        <!-- COMPLETE (11) Create an ImageView for the blue table's header -->
+        <ImageView
+            android:id="@+id/ivTableHeader"
+            android:background="@color/colorPrimaryLight"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tvDeparturetime"
+            app:layout_constraintHorizontal_bias="0.33" />
+
+        <!-- COMPLETE (12) Create an ImageView for the blue table's body -->
+        <ImageView
+            android:id="@+id/ivTable"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivTableHeader" />
+
+        <!-- COMPLETE (13) Create a TextView for each of the labels and text fields in the blue table -->
+        <TextView
+            android:id="@+id/tvTerminalLabel"
+            android:text="@string/terminal_label"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/ivTable"
+            app:layout_constraintTop_toTopOf="@+id/ivTableHeader"
+            app:layout_constraintStart_toStartOf="@+id/ivTableHeader"
+            app:layout_constraintEnd_toStartOf="@id/tvGateLabel"
+            app:layout_constraintHorizontal_weight="1"/>
+
+        <TextView
+            android:id="@+id/tvTerminal"
+            tools:text="@string/terminal"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivTable"
+            app:layout_constraintTop_toBottomOf="@+id/tvTerminalLabel"
+            app:layout_constraintStart_toStartOf="@+id/ivTable"
+            app:layout_constraintEnd_toStartOf="@+id/tvGate"
+            app:layout_constraintHorizontal_weight="1"
+            android:textColor="#FFFFFF"
+            android:textSize="48sp" />
+
+        <TextView
+            android:id="@+id/tvGateLabel"
+            android:text="@string/gate_label"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/ivTable"
+            app:layout_constraintTop_toTopOf="@+id/ivTableHeader"
+            app:layout_constraintStart_toEndOf="@+id/tvTerminalLabel"
+            app:layout_constraintEnd_toStartOf="@id/tvSeatLabel"
+            app:layout_constraintHorizontal_weight="1"/>
+
+        <TextView
+            android:id="@+id/tvGate"
+            tools:text="@string/gate"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivTable"
+            app:layout_constraintTop_toBottomOf="@+id/tvGateLabel"
+            app:layout_constraintStart_toEndOf="@+id/tvTerminal"
+            app:layout_constraintEnd_toStartOf="@+id/tvSeat"
+            app:layout_constraintHorizontal_weight="1"
+            android:textColor="#FFFFFF"
+            android:textSize="48sp" />
+
+        <TextView
+            android:id="@+id/tvSeatLabel"
+            android:text="@string/seat_label"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/ivTable"
+            app:layout_constraintTop_toTopOf="@+id/ivTableHeader"
+            app:layout_constraintStart_toEndOf="@+id/tvGateLabel"
+            app:layout_constraintEnd_toEndOf="@id/ivTableHeader"
+            app:layout_constraintHorizontal_weight="1"/>
+
+        <TextView
+            android:id="@+id/tvSeat"
+            tools:text="@string/seat"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivTable"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeatLabel"
+            app:layout_constraintStart_toEndOf="@id/tvGate"
+            app:layout_constraintEnd_toEndOf="@+id/ivTable"
+            app:layout_constraintHorizontal_weight="1"
+            android:textColor="#FFFFFF"
+            android:textSize="48sp" />
+
+        <!-- COMPLETE (14) Create an ImageView for the barcode -->
+        <ImageView
+            android:id="@+id/barcode"
+            app:srcCompat="@mipmap/barcode"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivTable"
+            android:layout_marginTop="8dp"/>
+
+        <!-- COMPLETE (15) Import the plane image SVG file into the drawable directory and name it art_plane -->
+        <!-- COMPLETE (16) Create an ImageView for the plane and set the background to art_plane drawable -->
+        <ImageView
+            android:id="@+id/ivPlane"
+            app:srcCompat="@drawable/art_plane"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/ivDivider"
+            app:layout_constraintStart_toEndOf="@+id/ivLeftRectangle"
+            app:layout_constraintEnd_toStartOf="@+id/ivRightRectangle" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>
